@@ -43,3 +43,10 @@ stages:
           arguments: '--configuration $(buildConfiguration) --no-restore'
           modifyOutputPath: false
         displayName: 'Publish WebApplication'
+
+
+      - task: PublishPipelineArtifact@1
+        inputs:
+          targetPath: '$(Build.ArtifactStagingDirectory)'
+          artifact: 'drop'
+          publishLocation: 'pipeline'
