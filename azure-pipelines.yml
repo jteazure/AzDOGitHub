@@ -38,12 +38,11 @@ stages:
       - task: DotNetCoreCLI@2
         inputs:
           command: 'publish'
-          publishWebProjects: false
+          publishWebProjects: true
           projects: '**/*.csproj'
-          arguments: '--configuration $(buildConfiguration) --no-restore'
+          arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
           modifyOutputPath: false
-        displayName: 'Publish WebApplication'
-
+        displayName: 'Publish Application'
 
       - task: PublishPipelineArtifact@1
         inputs:
