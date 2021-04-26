@@ -15,26 +15,31 @@ stages:
    - job: Build
      steps:
 
-      - task: NuGetToolInstaller@1
-
-      - task: NuGetCommand@2
+      - task: DotNetCoreCLI@2
         inputs:
-          restoreSolution: '$(solution)'
-
-      - task: VSBuild@1
+          command: 'restore'
+          projects: '**/*.csproj'
+        displayName: 'Restore Nuget Packages'
+      
+      - task: DotNetCoreCLI@2
         inputs:
-          solution: '$(solution)'
-          msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-          platform: '$(buildPlatform)'
-          configuration: '$(buildConfiguration)'
-      - task: VSTest@2
+          command: 'build'
+          projects: '**/*.csproj'
+          arguments: '--no-restore'
+        displayName: 'Build projects'
+      
+      - task: DotNetCoreCLI@2
         inputs:
-          platform: '$(buildPlatform)'
-          configuration: '$(buildConfiguration)'
-
-      - task: PublishPipelineArtifact@1
+          command: 'test'
+          projects: '**/*Test.csproj'
+          arguments: '--no-restore --no-build'
+        displayName: 'Run Tests'
+      
+      - task: DotNetCoreCLI@2
         inputs:
-          targetPath: '$(Build.ArtifactStagingDirectory)'
-          artifact: 'drop'
-          publishLocation: 'pipeline'
-
+          command: 'publish'
+          publishWebProjects: false
+          projects: '**/*.csproj'
+          arguments: '--configuration $(buildConfiguration) --no-restore'
+          modifyOutputPath: false
+        displayName: 'Publish WebApplication'
