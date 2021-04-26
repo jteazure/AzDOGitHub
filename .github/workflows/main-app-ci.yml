@@ -1,0 +1,60 @@
+name: .NET
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
+    - name: Publish
+      run: dotnet publish
+
+    - name: Zip
+      run: |
+        mkdir release
+        cp -R /home/runner/work/devopsgihubdemo/devopsgihubdemo/WebApp/bin/Debug/net5.0/publish/* ./release
+        #cp -R /home/runner/work/devopsgihubdemo/devopsgihubdemo/WebApi/bin/Debug/net5.0/publish/* ./release
+        cd release
+        zip -r release.zip .
+        mv release.zip ..
+        cd ..
+        rm -rdf release     
+      
+    - name: Upload WebApp Build Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: WebApp
+        path: /home/runner/work/devopsgihubdemo/devopsgihubdemo/WebApp/bin/Debug/net5.0/publish/
+#    - name: Upload WebApi Build Artifact
+#      uses: actions/upload-artifact@v2
+#      with:
+#        name: WebApi
+#        path: /home/runner/work/devopsgihubdemo/devopsgihubdemo/WebApi/bin/Debug/net5.0/publish/
+     
+    - name: Latest tag
+      uses: EndBug/latest-tag@v1.4.0
+    - name: Release
+      uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        prerelease: false
+        files: |
+          ./release.zip
+        automatic_release_tag: latest
