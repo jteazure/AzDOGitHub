@@ -14,6 +14,7 @@ namespace WebApp.Controllers
     {
 
         public const string Password = "MySecretPassword";
+        public const string Token = "5b59247b-979e-454e-8a43-3967600ab01a";
 
         private static readonly string[] Summaries = new[]
         {
@@ -25,6 +26,7 @@ namespace WebApp.Controllers
         public MySecretController(ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
+            _logger.LogInformation("Token:" + Token);
         }
 
         [HttpGet]
