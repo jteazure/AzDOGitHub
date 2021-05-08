@@ -31,7 +31,7 @@ stages:
       - task: DotNetCoreCLI@2
         inputs:
           command: 'test'
-          projects: '**/*Test.csproj'
+          projects: '**/*TestProject.csproj'
           arguments: '--no-restore --no-build'
         displayName: 'Run Tests'
       
