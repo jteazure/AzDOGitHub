@@ -24,6 +24,9 @@ jobs:
     - name: Build with dotnet
       run: dotnet build --configuration Release
 
+    - name: dotnet test
+      run: dotnet test /home/runner/work/AzDOGitHub/AzDOGitHub/TestProject/TestProject.csproj
+
     - name: dotnet publish
       run: dotnet publish /home/runner/work/AzDOGitHub/AzDOGitHub/WebApp/WebApp.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
