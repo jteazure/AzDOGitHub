@@ -10,7 +10,7 @@ This project demonstrates the integration between Azure DevOps and GitHub
 ## Integrations
 Links between Commits/Issue RefId in GH inside AzDO WorkItems
 
-[![.NET](https://github.com/jteazure/AzDOGitHub/actions/workflows/dev-pipeline.yml/badge.svg)](https://github.com/jteazure/AzDOGitHub/actions/workflows/dev-pipeline.yml)
+[![Build and deploy ASP.Net Core app to Azure Web App - AzDOGitHub-dev](https://github.com/jteazure/AzDOGitHub/actions/workflows/main_AzDOGitHub-dev.yml/badge.svg)](https://github.com/jteazure/AzDOGitHub/actions/workflows/main_AzDOGitHub-dev.yml)
 
 [![CodeQL](https://github.com/jteazure/AzDOGitHub/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/jteazure/AzDOGitHub/actions/workflows/codeql-analysis.yml)
 
