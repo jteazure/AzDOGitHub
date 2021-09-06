@@ -1,8 +1,0 @@
-﻿/* Script0053 */
-x = new 
-{
-	Hello = 3,
-	No = "Yes"
-};
-
-x.Json;

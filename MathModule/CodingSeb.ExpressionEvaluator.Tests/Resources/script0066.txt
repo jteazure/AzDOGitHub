@@ -1,9 +1,0 @@
-﻿/* Script0066 */
-string test = "";
-
-for(int x = 0; x < 5; x++)
-{
-	test += x.ToString() + ",";
-}
-
-return test;

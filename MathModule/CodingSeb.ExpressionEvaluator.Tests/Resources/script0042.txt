@@ -1,3 +1,0 @@
-﻿/* Script0042 */
-
-doubleQuoteChar = '"';
