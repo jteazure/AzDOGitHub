@@ -34,31 +34,31 @@
     <ProjectReference Include="..\CodingSeb.ExpressionEvaluator\CodingSeb.ExpressionEvaluator.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Script0001.txt" />
+    <None Include="Resources\script0001.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Script0002.txt" />
+    <None Include="Resources\script0002.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Script0003.txt" />
+    <None Include="Resources\script0003.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Script0004.txt" />
+    <None Include="Resources\script0004.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Script0005.txt" />
+    <None Include="Resources\script0005.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Script0006.txt" />
+    <None Include="Resources\script0006.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Script0007.txt" />
+    <None Include="Resources\script0007.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Script0008.txt" />
+    <None Include="Resources\script0008.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Script0009.txt" />
+    <None Include="Resources\script0009.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Script0010.txt" />
